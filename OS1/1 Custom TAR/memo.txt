@@ -1,0 +1,18 @@
+
+	Ejercicios resueltos en la carpeta "Exercises":
+	
+	Algunos detalles:
+		
+		Arreglar el "bad-sort" ha sido cuestión de depurar correctamente y comprobar el funcionamiento del programa
+		
+		Modificar el "show-file" ha sido sencillo. Lo complicado es intentar leer un fichero en bloques más grandes que el propio fichero,
+			al hacer fread más allá del eof el puntero al fichero se vuelve inválido y no hay forma de recuperarlo. No funcionan los 
+			comandos como rewind, clearerr or fseek.
+			
+			Una forma de solucionar este problema sería leyendo el fichero de principio a fin para obtener su tamaño y decidir de antemano 
+			si se puede leer por bloques de ese tamaño, pero me ha parecido que eso haría un poco inútil cambiar los getc y putc por fread
+			y fwrite.
+			
+			Funciona si los bloques son menores (estrictos) que el tamaño entero del fichero. Los datos restantes los copia en bloques de 1
+			
+			

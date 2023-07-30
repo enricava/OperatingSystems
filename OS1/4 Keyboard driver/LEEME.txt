@@ -1,0 +1,12 @@
+1. Mi ordenador solo dispone de dos leds -CAPS LOCK y NUM LOCK-, así que he omitido el tratamiento del led
+del que no dispongo -no ocurrirá ningún error pero tampoco se pasará nada al hacer 'sudo echo 3 > /dev/chardev_leds'.
+Si quieres que incluya el tratamiento de ese led en mi código lo puedo incluir.
+
+2. 
+Sobre el script de comprobación:
+
+Al cargar mi módulo, te imprimo en 'dmesg' el comando 'mknod' correcto para crear el fichero '/dev/chardev_leds'. El script de bash que nos has proporcionado para testear la práctica busca el archivo '/dev/leds'. (Así que si copias y pegas sin más el 'mknod' proporcionado, el script de testeo no encontrará el fichero).
+
+ Por último, el test (creo que es el test 5) que verifica que devolvamos el error -EMSGSIZE cuando intentamos escribir demasiado a la vez no funciona nuestras máquinas virtuales. Para que funcione es necesario usar 'python3' en vez de 'python' y añadir los paréntesis que faltan en el comando 'print' para generar la cadena de 500*A que quiere testear el script.
+
+Enrique Cavanillas Puga
